@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GS FOOD STUDIO ABOUT US</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Quicksand:400,500,700');
+
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Quicksand", sans-serif;
+        font-size: 62.5%;
+        font-size: 10px;
+    }
+
+    /*-- Inspiration taken from abdo steif -->
+/* --> https://codepen.io/abdosteif/pen/bRoyMb?editors=1100*/
+
+    /* Navbar section */
+
+    .nav {
+        width: 100%;
+        height: 65px;
+        position: fixed;
+        line-height: 65px;
+        text-align: center;
+    }
+
+    .nav div.logo {
+        float: left;
+        width: auto;
+        height: auto;
+        padding-left: 3rem;
+    }
+
+    .nav div.logo a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 2.5rem;
+    }
+
+    .nav div.logo a:hover {
+        color: #00E676;
+    }
+
+    .nav div.main_list {
+        height: 65px;
+        float: right;
+    }
+
+    .nav div.main_list ul {
+        width: 100%;
+        height: 65px;
+        display: flex;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
+
+    .nav div.main_list ul li {
+        width: auto;
+        height: 65px;
+        padding: 0;
+        padding-right: 3rem;
+    }
+
+    .nav div.main_list ul li a {
+        text-decoration: none;
+        color: #fff;
+        line-height: 65px;
+        font-size: 2.4rem;
+    }
+
+    .nav div.main_list ul li a:hover {
+        color: #00E676;
+    }
+
+
+    /* Home section */
+
+    /* .home {
+    width: 100%;
+    height: 100vh;
+    background-image: url(https://prconsultancychefs.weebly.com/uploads/7/0/5/6/70560755/2500524_orig.jpg);
+    background-position: center top;
+	background-size:cover;
+} */
+
+
+    .home {
+        width: 100%;
+        height: 100vh;
+        background-position: center top;
+        background-size: cover;
+        transition: background-image 1s ease-in-out;
+    }
+
+    .navTrigger {
+        display: none;
+    }
+
+    .nav {
+        padding-top: 20px;
+        padding-bottom: 20px;
+        -webkit-transition: all 0.4s ease;
+        transition: all 0.4s ease;
+    }
+
+
+    /* Media qurey section */
+
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
+        .container {
+            margin: 0;
+        }
+    }
+
+    @media screen and (max-width:768px) {
+        .navTrigger {
+            display: block;
+        }
+
+        .nav div.logo {
+            margin-left: 15px;
+        }
+
+        .nav div.main_list {
+            width: 100%;
+            height: 0;
+            overflow: hidden;
+        }
+
+        .nav div.show_list {
+            height: auto;
+            display: none;
+        }
+
+        .nav div.main_list ul {
+            flex-direction: column;
+            width: 100%;
+            height: 100vh;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            background-color: #111;
+            /*same background color of navbar*/
+            background-position: center top;
+        }
+
+        .nav div.main_list ul li {
+            width: 100%;
+            text-align: right;
+        }
+
+        .nav div.main_list ul li a {
+            text-align: center;
+            width: 100%;
+            font-size: 3rem;
+            padding: 20px;
+        }
+
+        .nav div.media_button {
+            display: block;
+        }
+    }
+
+
+    /* Animation */
+    /* Inspiration taken from Dicson https://codemyui.com/simple-hamburger-menu-x-mark-animation/ */
+
+    .navTrigger {
+        cursor: pointer;
+        width: 30px;
+        height: 25px;
+        margin: auto;
+        position: absolute;
+        right: 30px;
+        top: 0;
+        bottom: 0;
+    }
+
+    .navTrigger i {
+        background-color: #fff;
+        border-radius: 2px;
+        content: '';
+        display: block;
+        width: 100%;
+        height: 4px;
+    }
+
+    .navTrigger i:nth-child(1) {
+        -webkit-animation: outT 0.8s backwards;
+        animation: outT 0.8s backwards;
+        -webkit-animation-direction: reverse;
+        animation-direction: reverse;
+    }
+
+    .navTrigger i:nth-child(2) {
+        margin: 5px 0;
+        -webkit-animation: outM 0.8s backwards;
+        animation: outM 0.8s backwards;
+        -webkit-animation-direction: reverse;
+        animation-direction: reverse;
+    }
+
+    .navTrigger i:nth-child(3) {
+        -webkit-animation: outBtm 0.8s backwards;
+        animation: outBtm 0.8s backwards;
+        -webkit-animation-direction: reverse;
+        animation-direction: reverse;
+    }
+
+    .navTrigger.active i:nth-child(1) {
+        -webkit-animation: inT 0.8s forwards;
+        animation: inT 0.8s forwards;
+    }
+
+    .navTrigger.active i:nth-child(2) {
+        -webkit-animation: inM 0.8s forwards;
+        animation: inM 0.8s forwards;
+    }
+
+    .navTrigger.active i:nth-child(3) {
+        -webkit-animation: inBtm 0.8s forwards;
+        animation: inBtm 0.8s forwards;
+    }
+
+    @-webkit-keyframes inM {
+        50% {
+            -webkit-transform: rotate(0deg);
+        }
+
+        100% {
+            -webkit-transform: rotate(45deg);
+        }
+    }
+
+    @keyframes inM {
+        50% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(45deg);
+        }
+    }
+
+    @-webkit-keyframes outM {
+        50% {
+            -webkit-transform: rotate(0deg);
+        }
+
+        100% {
+            -webkit-transform: rotate(45deg);
+        }
+    }
+
+    @keyframes outM {
+        50% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(45deg);
+        }
+    }
+
+    @-webkit-keyframes inT {
+        0% {
+            -webkit-transform: translateY(0px) rotate(0deg);
+        }
+
+        50% {
+            -webkit-transform: translateY(9px) rotate(0deg);
+        }
+
+        100% {
+            -webkit-transform: translateY(9px) rotate(135deg);
+        }
+    }
+
+    @keyframes inT {
+        0% {
+            transform: translateY(0px) rotate(0deg);
+        }
+
+        50% {
+            transform: translateY(9px) rotate(0deg);
+        }
+
+        100% {
+            transform: translateY(9px) rotate(135deg);
+        }
+    }
+
+    @-webkit-keyframes outT {
+        0% {
+            -webkit-transform: translateY(0px) rotate(0deg);
+        }
+
+        50% {
+            -webkit-transform: translateY(9px) rotate(0deg);
+        }
+
+        100% {
+            -webkit-transform: translateY(9px) rotate(135deg);
+        }
+    }
+
+    @keyframes outT {
+        0% {
+            transform: translateY(0px) rotate(0deg);
+        }
+
+        50% {
+            transform: translateY(9px) rotate(0deg);
+        }
+
+        100% {
+            transform: translateY(9px) rotate(135deg);
+        }
+    }
+
+    @-webkit-keyframes inBtm {
+        0% {
+            -webkit-transform: translateY(0px) rotate(0deg);
+        }
+
+        50% {
+            -webkit-transform: translateY(-9px) rotate(0deg);
+        }
+
+        100% {
+            -webkit-transform: translateY(-9px) rotate(135deg);
+        }
+    }
+
+    @keyframes inBtm {
+        0% {
+            transform: translateY(0px) rotate(0deg);
+        }
+
+        50% {
+            transform: translateY(-9px) rotate(0deg);
+        }
+
+        100% {
+            transform: translateY(-9px) rotate(135deg);
+        }
+    }
+
+    @-webkit-keyframes outBtm {
+        0% {
+            -webkit-transform: translateY(0px) rotate(0deg);
+        }
+
+        50% {
+            -webkit-transform: translateY(-9px) rotate(0deg);
+        }
+
+        100% {
+            -webkit-transform: translateY(-9px) rotate(135deg);
+        }
+    }
+
+    @keyframes outBtm {
+        0% {
+            transform: translateY(0px) rotate(0deg);
+        }
+
+        50% {
+            transform: translateY(-9px) rotate(0deg);
+        }
+
+        100% {
+            transform: translateY(-9px) rotate(135deg);
+        }
+    }
+
+    .affix {
+        padding: 0;
+        background-color: #111;
+    }
+
+
+
+
+
+
+    .myH2 {
+        text-align: center;
+        font-size: 4rem;
+    }
+
+    .myP {
+        text-align: center;
+        padding-left: 15%;
+        padding-right: 15%;
+        font-size: 20px;
+    }
+
+    @media all and (max-width:700px) {
+        .myP {
+            padding: 2%;
+        }
+    }
+
+
+
+    /*** service cards***/
+
+
+
+    body {
+        font-family: 'lato', sans-serif;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+
+    .servicecards {
+
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    @media (min-width: 45em) {
+        section {
+            flex-wrap: nowrap;
+        }
+    }
+
+    .card {
+        position: relative;
+        width: 250px;
+        height: 300px;
+        margin: 10px;
+        background: #CCC;
+        transform: rotateX(0) rotateY(0);
+        transform-style: preserve-3d;
+        transition-duration: 0.1s;
+        transition-timing-function: ease !important;
+        backface-visibility: hidden;
+        will-change: tranform;
+    }
+
+    .card__overlay {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background: url(http://alexandrebuffet.fr/codepen/parallax-cards/blur-overlay.jpg) no-repeat center center;
+        background-size: cover;
+        mix-blend-mode: lighten;
+        opacity: 0.5;
+    }
+
+    .card__image img {
+        max-width: 100%;
+        width: 250px;
+        height: 300px;
+        object-fit: cover;
+        mix-blend-mode: lighten;
+    }
+
+    .card__heading {
+        position: absolute;
+        bottom: 20px;
+        left: 20px;
+        width: 100%;
+        color: #FFF;
+    }
+
+    .card__heading .small {
+        display: inline-block;
+        margin-bottom: 5px;
+        text-transform: uppercase;
+        font-size: 10px;
+        transform: translateZ(15px);
+    }
+
+    .card__heading h2 {
+        margin: 0;
+        transform: translateZ(30px);
+    }
+
+    .card.is-out {
+        transform: rotateX(0) rotateY(0) !important;
+        transition-duration: 1s;
+    }
+
+    #card-1 {
+        background-color: #424242;
+    }
+
+    #card-2 {
+        background-color: #424242;
+    }
+
+    #card-3 {
+        background-color: #424242;
+    }
+
+    #card-4 {
+        background-color: #424242;
+    }
+
+
+    .seperation {
+        background-color: #eee;
+        background-color: rgba(0, 0, 0, 0.13);
+        border: 0pt none;
+        color: #eee;
+        color: rgba(0, 0, 0, 0.13);
+        height: 1px;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+
+
+    .ppcard {
+        width: 40%;
+        height: 500px;
+        /* Fixed height for the image card */
+        background-color: #fff;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .ppcard img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        /* Ensures the image covers the container while maintaining aspect ratio */
+        display: block;
+    }
+
+
+
+    /** button**/
+
+
+    .button-container {
+        text-align: center;
+    }
+
+    .about-button {
+        display: inline-block;
+        padding: 12px 25px;
+        font-size: 16px;
+        color: #fff;
+        background: black;
+        text-decoration: none;
+        border-radius: 30px;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        border: none;
+        cursor: pointer;
+    }
+
+    .about-button:hover {
+        background: linear-gradient(135deg, #feb47b 0%, #ff7e5f 100%);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        transform: translateY(-2px);
+    }
+
+
+    /** footer**/
+    footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+.contactus-section {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.contactus-columns {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+}
+
+.contactus-columns > div {
+    flex: 1;
+    margin-right: 20px;
+}
+
+.contactus-columns > div:last-child {
+    margin-right: 0;
+}
+
+h3, h4 {
+    color: #feb47b;
+}
+
+p, a {
+    color: #ddd;
+    text-decoration: none;
+    margin-bottom: 10px;
+    display: block;
+}
+
+a:hover {
+    color: #fff;
+}
+
+.nav-links {
+    flex: 0.3;
+    margin-top: 20px;
+}
+
+.nav-links ul {
+    list-style: none;
+    padding: 0;
+}
+
+.nav-links ul li {
+    margin-bottom: 10px;
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 10px;
+    background-color: #222;
+    color: #bbb;
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+    }
+
+    .contactus-columns {
+        flex-direction: column;
+    }
+
+    .contactus-columns > div {
+        margin-right: 0;
+        margin-bottom: 20px;
+    }
+}
+
+</style>
+
+<body>
+    <div class="parent">
+
+
+        <header>
+            <nav class="nav">
+                <div class="container">
+                    <div class="logo">
+                        <a href="index.html">GS FOOD STUDIO</a>
+                    </div>
+                    <div id="mainListDiv" class="main_list">
+                        <ul class="navlinks">
+                            <li><a href="index.html">HOME</a></li>
+                            <li><a href="about.html" style="color: #00E676;">About</a></li>
+                            
+                            <li><a href="services.html">Services</a></li>
+                            <li><a href="#footer">Contact</a></li>
+                        </ul>
+                    </div>
+                    <span class="navTrigger">
+                        <i></i>
+                        <i></i>
+                        <i></i>
+                    </span>
+                </div>
+            </nav>
+
+
+
+            <!-- Jquery needed -->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+            <script src="js/scripts.js"></script>
+
+            <!-- Function used to shrink nav bar removing paddings and adding black background -->
+
+        </header>
+
+        <body>
+            <section class="home">
+            </section>
+            <div style="height: 1000px">
+                <!-- just to make scrolling effect possible -->
+                <h2 class="myH2">Who We Are</h2>
+                <p class="myP" style="color: #111;">We are a Delhi-NCR based top Hotel & Restaurant Consultants in India
+                    focused
+                    on Hospitality management, Interior & Kitchen designing. </p>
+
+                <p class="myP" style="font-size: 17px; color: #424242;">PR Consultancy & Chefs located in Delhi region,
+                    ​ is an interactive consultancy made up of Hospitality developers, designers, problem solvers, and
+                    all-around creative personalities. We have joined forces to build the best in Hospitality, native
+                    and mobile experiences. We don't create hotels, we engineer solutions. We dedicate our days to
+                    serving our clients, and find inspiration in the challenges we meet along the way. If you're looking
+                    to combine technologies for a unique need or working to bring an imaginative experience to life,
+                    you're at the right place.
+                    ​
+                    We have a long-standing reputation as advisers of choice to the hotel, leisure and hospitality and
+                    tourism and indeed the wider real estate sectors. When it comes to supporting our clients'
+                    interests, we know that in-depth knowledge of this industry and how it operates is every bit as
+                    important as professional expertise. Our combination of experience and technical skill means we can
+                    always find the best way to achieve your goals – such as opening a new destination, enhancing your
+                    competitive position, or simply obtaining quality accounting and tax advice.</p>
+
+
+                <div class="seperation"></div>
+                <h2 class="myH2">
+                    We love new projects!
+                    Let's get started.</h2>
+
+                <p class="myP" style="font-size: 17px; color: #424242;">
+                    Our experienced team is frequently called upon by the legal profession and by our colleagues in our associated accounting practice to act as expert witness or to provide technical and professional input into management contracts, financial and interparty agreements and property planning matters.
+                    </p>
+
+
+                <div class="button-container" style="margin-top: 10px; margin-bottom: 10px;">
+                    <a href="#" class="about-button">connect with us</a>
+                </div>
+                
+
+                </p>
+            </div>
+
+
+        </body>
+        <footer>
+            <footer id="footer">
+                <div class="footer-container">
+                    <div class="contactus-section">
+                        <h3>Contact Us</h3>
+                        <p>If you are planning for a project with us, we would love to hear from you and serve you the best of us.</p>
+                        <p>Let's Talk...</p>
+                        <div class="contactus-columns">
+                            <div class="address-info">
+                                <h4>Address</h4>
+                                <p>Greater Kailash II,<br> Hamdard, Ravidas Marg<br> New Delhi</p>
+                            </div>
+        
+                            <div class="info">
+                                <h4>Info</h4>
+                                <p><a href="mailto:pradeep@prconsultancychefs.com">pradeep@prconsultancychefs.com</a></p>
+                                <p><a href="mailto:rajendra@prconsultancychefs.com">rajendra@prconsultancychefs.com</a></p>
+                                <p><a href="tel:+919643521202">+91-9643521202</a></p>
+                                <p><a href="tel:+918368717936">+91-8368717936</a></p>
+                            </div>
+        
+                            <div class="social">
+                                <h4>Social</h4>
+                                <p><a href="https://www.facebook.com/prconsultancychefs" target="_blank">Facebook/GS FOOD STUDIO</a></p>
+                                <p><a href="https://twitter.com/prconsultancychefs" target="_blank">Twitter/GS FOOD STUDIO</a></p>
+                                <p><a href="https://youtube.com/@chefpradeepsilswal?si=NjL1YNsc1W6EjZZj" target="_blank">YouTube/GS FOOD STUDIO</a></p>
+                            </div>
+                        </div>
+                    </div>
+        
+                    <div class="nav-links">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="about.html">About</a></li>
+                            <li><a href="services.html">Services</a></li>
+                        </ul>
+                    </div> 
+                </div>
+        
+                <div class="footer-bottom">
+                    <p>&copy; 2024 GS FOOD STUDIO. All rights reserved.</p>
+                </div>
+            </footer>
+        </footer>
+    </div>
+
+
+    <script>
+        $(window).scroll(function () {
+            if ($(document).scrollTop() > 50) {
+                $('.nav').addClass('affix');
+                console.log("OK");
+            } else {
+                $('.nav').removeClass('affix');
+            }
+        });
+    </script>
+
+    <script>
+        $('.navTrigger').click(function () {
+            $(this).toggleClass('active');
+            console.log("Clicked menu");
+            $("#mainListDiv").toggleClass("show_list");
+            $("#mainListDiv").fadeIn();
+
+        });
+
+    </script>
+
+
+
+    <script>
+        const images = [
+            '1.jpg',
+            '2.jpg',
+            '3.jpg',
+            '4.jpg',
+            '5.jpg',
+            '6.jpg',
+            '7.jpg',
+            '8.jpg',
+        ];
+
+        let index = 0;
+        const homeDiv = document.querySelector('.home');
+
+        function changeBackground() {
+            homeDiv.style.backgroundImage = `url(${images[index]})`;
+            index = (index + 1) % images.length;
+        }
+
+        setInterval(changeBackground, 5000); // Change image every 5 seconds
+    </script>
+    <script>
+        (function ($) {
+            $.fn.tilt = function () {
+                var perspective = '500px',
+                    delta = 20,
+                    width = this.width(),
+                    height = this.height(),
+                    midWidth = width / 2,
+                    midHeight = height / 2;
+                this.on({
+                    mousemove: function (e) {
+                        var pos = $(this).offset(),
+                            cursPosX = e.pageX - pos.left,
+                            cursPosY = e.pageY - pos.top,
+                            cursCenterX = midWidth - cursPosX,
+                            cursCenterY = midHeight - cursPosY;
+
+                        $(this).css('transform', 'perspective(' + perspective + ') rotateX(' + (cursCenterY / delta) + 'deg) rotateY(' + -(cursCenterX / delta) + 'deg)');
+                        $(this).removeClass('is-out');
+                    },
+                    mouseleave: function () {
+                        $(this).addClass('is-out');
+                    }
+                });
+                //Return
+                return this;
+            };
+        }(jQuery));
+
+        //Set plugin on cards
+        $('.card').tilt();
+    </script>
+
+
+    <script>
+        const image = ["pp1.jpg", "pp2.jpeg", "pp3.jpg", "pp4.jpeg"]; // Add the paths to your images here
+        let currentIndex = 0;
+
+        function changeImage() {
+            const imageElement = document.getElementById("image");
+            currentIndex = (currentIndex + 1) % image.length;
+            imageElement.src = image[currentIndex];
+        }
+
+        setInterval(changeImage, 2000);
+    </script>
+</body>
+
+</html>
